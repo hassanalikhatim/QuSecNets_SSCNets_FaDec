@@ -61,7 +61,7 @@ class Selective_Filter(tf.keras.layers.Layer):
     def call(self, inputs):
         
         grayTensor = tf.abs(self.apply_filter(self.filter, inputs))
-        grayTensor = self.sigmoid_fn(grayTensor - self.quantization_threshold)
+        grayTensor = self.sigmoid_fn( self.quantization_hardness * (grayTensor - self.quantization_threshold) )
         grayTensor = tf.multiply(inputs, grayTensor)
         
         return grayTensor
