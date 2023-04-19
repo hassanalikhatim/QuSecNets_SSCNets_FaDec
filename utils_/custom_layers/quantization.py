@@ -35,7 +35,7 @@ class Quantization(tf.keras.layers.Layer):
   
 class Variable_Quantization(tf.keras.layers.Layer):
     
-    def __init__(self, quantization_levels=16, quantization_hardness=1):
+    def __init__(self, quantization_levels=16, quantization_hardness=1, **kwargs):
         
         self.quantization_hardness = quantization_hardness
         
